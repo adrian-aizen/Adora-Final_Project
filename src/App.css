@@ -1,42 +1,60 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap%27');
+
+*{
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+body {
+  height: 100vh;
+  width: 100%;
+  background: url("./public/bgpic.jpg") no-repeat center/ cover;
+  padding:0;
+  background-attachment: fixed;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.typing-text{
+  font-size: 34px;
+  font-weight: 600;
+  min-width: 280px;
+}
+
+.typing-text span{
+  position: relative;
+}
+
+.typing-text span::before {
+  content: "BSIT Student";
+  color: slategray;
+  animation: words 20s infinite;
+}
+
+.typing-text span::after {
+  content: "";
+  color: black;
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 100%;
+  border-left: 3px solid black;
+  right: -8;
+  animation: cursor 0.6s infinite;
+}
+
+@keyframes cursor{
+  to{
+      border-left: 3px solid white;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@keyframes words{
+  0%, 50%{
+      content: "Novice Web Developer";
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  51%, 100%{
+      content: "Future Fullstack Developer";
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
